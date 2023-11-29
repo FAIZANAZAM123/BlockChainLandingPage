@@ -1,0 +1,1360 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <!-- <div class="dropdown ">
+        <button class="btn btn-secondary show custom-toggler" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-menu toleft">
+           
+
+        </ul>
+    </div> -->
+
+
+
+
+
+
+
+
+    <div class="dropdown">
+        <div id="boxx" class="box arrow-top">
+
+
+            <div class="btn-group ms-5" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-dark btn-lg" for="btnradio1">IOS </label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btnradio2">Android </label>
+
+            </div>
+
+
+
+            <div class="togiveborder">
+                <img class="ms-3 mt-4 border-1 border-black"
+                    src="data:image/png;base64,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"
+                    alt="wq">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> <img class="image1"
+                    src="https://login.blockchain.com/img/bc-icon.svg?169742128c" alt="icon" /></a>
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Price</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Earn</a>
+                    </li>
+
+                </ul>
+
+
+
+
+            </div>
+
+
+            <div class="d-flex  buttons">
+
+                <button class="btn btn-outline-primary px-3 fw-bold text-primary" type="submit">Send</button>
+                <button class="btn btn-outline-primary px-3 fw-bold text-primary" type="submit">Recieve</button>
+                <button data-e2e="fabButton"
+                    class="sc-gqjmRU cWpkIJ px-3 fw-bold text-light trade d-flex sc-gPWkxV ceZBms btn btn-primary text-light btn-outline-success"
+                    type="button" height="40px" color="grey800" fdprocessedid="qbylph">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_318_8672" maskUnits="userSpaceOnUse" x="-2" y="-1" width="23" height="21"
+                            style="mask-type: alpha;">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M21 -1H-1V5.63587C-1.64066 6.95464 -2 8.43535 -2 10C-2 11.5646 -1.64066 13.0454 -1 14.3641V19H3.63587C4.95464 19.6407 6.43535 20 8 20C9.56465 20 11.0454 19.6407 12.3641 19H21V-1ZM12.3641 19C15.7003 17.3793 18 13.9582 18 10C18 4.47715 13.5228 0 8 0C4.0418 0 0.620721 2.2997 -1 5.63587V14.3641C-0.0199373 16.3815 1.61846 18.0199 3.63587 19H12.3641Z"
+                                fill="#121D33"></path>
+                        </mask>
+                        <g mask="url(#mask0_318_8672)">
+                            <ellipse cx="13" cy="6" rx="6" ry="6" fill="white"></ellipse>
+                        </g>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16 10C16 14.4183 12.4183 18 8 18C3.58172 18 0 14.4183 0 10C0 5.58172 3.58172 2 8 2C12.4183 2 16 5.58172 16 10ZM6.52172 8.99655C6.78384 8.99655 6.99633 8.78406 6.99633 8.52194V5.97463C6.99633 5.71251 7.20882 5.50002 7.47094 5.50002H8.52867C8.79079 5.50002 9.00328 5.71251 9.00328 5.97463V8.52194C9.00328 8.78406 9.21577 8.99655 9.47789 8.99655H12.0252C12.2873 8.99655 12.4998 9.20904 12.4998 9.47116V10.5289C12.4998 10.791 12.2873 11.0035 12.0252 11.0035H9.47789C9.21577 11.0035 9.00328 11.216 9.00328 11.4781V14.0254C9.00328 14.2875 8.79079 14.5 8.52867 14.5H7.47094C7.20882 14.5 6.99633 14.2875 6.99633 14.0254V11.4781C6.99633 11.216 6.78384 11.0035 6.52172 11.0035H3.97441C3.71229 11.0035 3.49981 10.791 3.49981 10.5289V9.47116C3.49981 9.20904 3.7123 8.99655 3.97441 8.99655H6.52172Z"
+                            fill="white"></path>
+                    </svg>
+                    <div class="" color="white" cursor="inherit" opacity="1" class="sc-gzVnrw cqfRsR"
+                        style="padding-left: 5px;">
+                        Trade</div>
+                </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div onclick="showbar()" class="d-none d-md-block " role="button " tabindex="0" fdprocessedid="4g0emn">
+                    <svg class="icons" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        color="#98A1B2" width="1rem" height="1rem" focusable="false" label="open-menu">
+                        <path
+                            d="M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z">
+                        </path>
+                    </svg>
+                </div>
+
+
+                <div class="d-md-block d-none icons" role="button" tabindex="0" fdprocessedid="4g0emn">
+
+                    <svg class="icons" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        color="#98A1B2" width="1rem" height="1rem" focusable="false">
+                        <path
+                            d="M20.473 3.525C18.296 1.35 15.31 0 11.993 0 5.357 0 0 5.37 0 12s5.358 12 11.992 12c5.373 0 9.888-3.522 11.425-8.38a.48.48 0 0 0-.468-.62h-1.768c-.424 0-.797.27-.97.658A8.99 8.99 0 0 1 11.993 21c-4.969 0-9.006-4.035-9.006-9s4.037-9 9.005-9c2.492 0 4.713 1.035 6.334 2.67l-3.124 3.123c-.63.63-.184 1.707.707 1.707h7.341a.75.75 0 0 0 .75-.75V2.413c0-.89-1.077-1.337-1.707-.707l-1.82 1.819z">
+                        </path>
+                    </svg>
+
+
+                </div>
+
+
+
+                <div class="d-md-block d-none icons" role="button" tabindex="0" fdprocessedid="4g0emn">
+
+                    <svg class="icons" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        color="#98A1B2" width="1rem" height="1rem" focusable="false" label="open-menu">
+                        <path class="icons"
+                            d="M12 12a5 5 0 0 0 5-5c0-2.763-2.238-5-5-5S7 4.237 7 7a5 5 0 0 0 5 5zm0 2.5c-3.338 0-10 1.675-10 5V22h20v-2.5c0-3.325-6.662-5-10-5z">
+                        </path>
+                    </svg>
+
+                </div>
+
+
+            </div>
+
+            <button onclick="shownavbar()" class="burger-menu d-lg-none border-0 bg-white" type="button"
+                data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fs-1 fa-bars text-primary"></i>
+            </button>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </nav>
+
+
+    <div id="navbarbox" class="navbarbox">
+        <ul class="main-menu">
+            <li>Home</li>
+            <li>Prices</li>
+            <li>Earn</li>
+        </ul>
+        <ul class="sub-menu mt-4">
+            <li>General</li>
+            <li>Security</li>
+            <li>Trading limits</li>
+            <li>Preferences</li>
+            <li>Wallet & Addresses</li>
+            <li>Refer A Friend</li>
+            <li>Tax Center</li>
+        </ul>
+
+        <button type="button" class="btn mx-2 px-5 signout">Signout</button>
+    </div>
+    <main id="main">
+
+
+        <div class="row  mt-5 g-0 mx-lg-4">
+
+            <div class="col-lg-3  d-none d-md-block decwidth">
+
+
+
+                <div class="d-flex justify-content-between">
+
+                    <div class="left">
+
+
+                        <p class="fw-bold" style="color:#6C7C8C ;">Total Balance</p>
+
+                        <h2 style="margin-top: -16px;">$0.00</h2>
+                    </div>
+
+                    <div class="dropdown ">
+                        <button class="btn btn-secondary show custom-toggler" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu toleft">
+                            <div class="d-flex justify-content-between mx-3 mt-2">
+                                <p class="kk">BTC</p>
+                                <p class="kk">0</p>
+                            </div>
+                            <!-- <div class="text-center"> -->
+                            <button type="button" class="btn btn-outline-primary jj  btn-white border-1">Show in
+                                USD</button>
+                            <!-- </div> -->
+
+                        </ul>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+                <hr class="mt-3">
+
+
+                <div onclick="displayhome()" class="d-flex kkkk  align-items-end">
+                    <i class="bi bi-house-door"></i>
+                    <h5 class="ms-4">Home</h5>
+                </div>
+
+
+                <div class="d-flex mt-3 align-items-center ">
+                    <h6 style="color: #987184;">Portfolio</h6>
+                    <div class="line"></div>
+                </div>
+
+
+                <div onclick="displayEuro()" class="d-flex mt-3 kkkk  align-items-center">
+                    <i class="fas fa-pound-sign h11  " style="color:white ; background-color: green; font-size:30px;"></i>
+                    <h5 style="color: #677184; margin-top: 7px;" class="ms-4 ">British Pound</h5>
+                </div>
+
+                <hr>
+
+
+                <div onclick="displaybitcoin()" class="d-flex mt-3 kkkk  align-items-center">
+                    <i class="fab fa-bitcoin" style="color: orange;"></i>
+                    <h5 style="color: #677184; margin-top: 7px;" class="ms-4 ">Bitcoin</h5>
+                </div>
+
+                <hr>
+
+                <div onclick="displayparachute()" class="d-flex mt-3 kkkk  align-items-center">
+
+                    <i class="fas fa-parachute-box" style="color:gray;"></i>
+                    <h5 style="color: #677184; margin-top: 7px;" class="ms-4 ">Bitcoin</h5>
+                </div>
+
+
+                <hr>
+
+                <div class="d-flex mt-3 kkkk  align-items-center">
+                    <!-- <i class="fab fa-bitcoin" style="color: orange;"></i> -->
+                    <img class="image1" src="https://login.blockchain.com/img/bc-icon.svg?169742128c" alt="icon" />
+                    <h5 style="color: #677184;  margin-top: 7px;" class="ms-4 ">Exchange</h5>
+                </div>
+
+
+
+
+            </div>
+
+            <div id="home" class="col-lg-10 mt-4  col-md-12 toinc col-sm-12 col-12">
+
+
+
+
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-5 tolginc col-md-5 ms-3  toinc col-sm-12 col-12 hh">
+                        <div class="card">
+                            <div class="d-flex mt-4 mx-4 justify-content-between">
+
+                                <p style="font-size: 19px ; font-weight: 600;">Holdings</p>
+                                <p style="color: blue; font-weight: 500;">View Prices <i class="bi bi-arrow-right"></i>
+                                </p>
+
+
+                            </div>
+
+                            <div class="d-flex mx-4 justify-content-between">
+                                <div class="d-flex   align-items-center">
+                                    <i class="fas fa-pound-sign  nb fs-2" style="color: white; background-color: green;"></i>
+                                    <h5 style="color: #677184; margin-top: 7px; font-size: 24px ; font-weight: 600;"
+                                        class="ms-4 ">British Pound</h5>
+                                </div>
+
+                                <div class="pt-3">
+                                    <p class="" style="color:#353F52;font-size: 23px ;"> &#8364; 0.00</p>
+
+                                    <p style="margin-top: -16px;margin-left: 15px; color:#6C7C8C ; font-size: 18px;">0
+                                        BTC</p>
+                                </div>
+
+
+
+                            </div>
+
+                            <center><div class="line1"></div></center>
+
+                            <div class="d-flex mx-4 justify-content-between">
+                                <div class="d-flex mt-3  align-items-center">
+                                    <i class="fab fa-bitcoin" style="color: orange;"></i>
+                                    <h5 style="color: #677184; margin-top: 7px; font-size: 24px ; font-weight: 600;"
+                                        class="ms-4 ">Bitcoin</h5>
+                                </div>
+
+                                <div class="pt-3">
+                                    <p class="" style="color:#353F52;font-size: 23px ;">$0.00</p>
+
+                                    <p style="margin-top: -16px;margin-left: 15px; color:#6C7C8C ; font-size: 18px;">0
+                                        BTC</p>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-7 tolginc1 mt-lg-0 mt-5 col-md-7 toinc col-sm-12 col-12">
+
+
+
+
+                        <div class="card hh ">
+                            <div class="d-flex bbb toflex ">
+
+                                <div class="dropdown tocenter mt-3   ">
+                                    <button
+                                        class="btn d-flex border-0  gg justify-content-between btn-secondary bg-white text-dark "
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                        <i class="fab fa-bitcoin" style="color: orange;"></i>
+                                        <h5 class="d-lg-block d-none"> Bitcoin (B1</h5>
+                                        <h3 class="d-lg-none">Bitcoin(BTC)</h3>
+                                        <br></br>
+
+                                        <i class=" gg1 fas fa-chevron-down"></i>
+                                    </button>
+                                    <h3 class="b">$37,386.97</h3>
+                                    <h6 class="text-danger b1">-$354.10 (0.94)%</h6>
+
+                                    <ul class="dropdown-menu mt-2 w-50">
+                                        <li class="mt-1"><a class="dropdown-item" href="#"> <i class="fab fa-bitcoin"
+                                                    style="color: orange;"></i> Bitcoin Cash </a></li>
+
+                                        <li class="mt-3 ms-1"><a class="dropdown-item" href="#"> <i
+                                                    class="fab fa-ethereum" style="color: blue;"></i> Ether action</a>
+                                        </li>
+                                        <li class="mt-3"><a class="dropdown-item" href="#"><i
+                                                    class="fab fa-bitcoin"></i> Stellar </a></li>
+                                        <li class="mt-3"><a class="dropdown-item" href="#"> <i class="fab fa-bitcoin"
+                                                    style="color: orange;"></i> Bitcoin</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="buton">
+                                    <button type="button" class="btn my-2  btns btn-primary">Buy</button>
+                                    <button type="button" class="btn my-2 btns btn-primary">Sell</button>
+                                    <button type="button" onclick="toggleSlide()"
+                                        class="btn my-2 btns btn-primary">Swap</button>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class=" mb-3">
+                                <div
+                                    class="card-header d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
+                                    <h6 class="m-0 fw-bold">Area Datetime</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            id="one_month">1M</button>
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            id="six_months">6M</button>
+                                        <button type="button" class="btn btn-outline-secondary active"
+                                            id="one_year">1Y</button>
+                                        <button type="button" class="btn btn-outline-secondary" id="ytd">YTD</button>
+                                        <button type="button" class="btn btn-outline-secondary" id="all">ALL</button>
+                                    </div>
+                                    <div id="apex-timeline-chart"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <div id="bitcoin" class="col-lg-10 tonone container  margintop">
+
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex mt-3  ms-lg-3 align-items-center">
+                        <i class="fab fa-bitcoin bitcoin" style="color: orange;"></i>
+                        <h1 style=" margin-top: 7px; font-size: 40px ; font-weight: 600;" class="ms-3 ">Bitcoin</h1>
+                    </div>
+
+                    <div>
+
+                        <button type="button" class="btn my-2 btns1  btns btn-primary">Buy</button>
+                        <button type="button" class="btn my-2 btns1 btns btn-primary">Sell</button>
+                    </div>
+                </div>
+
+                <p style="color: rgb(103, 113, 132); font-size: 19px; font-weight: 600;" class="ms-lg-3 mt-1"> Bitcoin
+                    (BTC) is the original crypto and the internet’s premier digital currency.</p>
+
+
+
+                <div class=" row ">
+
+                    <div class="card col-lg-4 tolgin2 col-md-12 col-sm-12 col-12 ms-3">
+                        <h3 class="tt ms-3 mt-2">BTC Balance</h3>
+                        <h3 class=" ms-3 mt-2">$0.00</h3>
+
+                        <h3 class=" ms-3 mt-1 mb-3" style="color: blue; font-size: 18px;">Request BTC Now</h3>
+
+                    </div>
+
+                    <div class="card d-flex flex-lg-row  flex-column mt-lg-0 mt-4 tolgin3 col-md-12 d-flex flex-row col-sm-12 col-12 cardbitcoin col-md-12 ms-3">
+                        <div>
+                            <h3 class="tt ms-3 mt-2">BTC Price</h3>
+                            <h3 class=" ms-3 mt-2">$237382772.00</h3>
+                            <h3 class=" ms-3 mt-1 mb-3" style="color:green; font-size: 18px;">$232332.313 <span
+                                    style="color: #677184;">this week</span></h3>
+                        </div>
+                        <div class="flex-grow-1">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                    
+
+
+
+
+
+
+                    <center class="mt-5">
+                        <h3>Transaction</h3>
+
+                        <p style="color:#8A909C" class="mt-3 fs-5 ">All your Bitcoin will be showing up here</p>
+
+
+                        <button type="button" class="btn fw-bold btn-outline-primary py-3 px-3">Buy Bitcoin Now</button>
+
+                    </center>
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+            <div id="Euro" class="col-lg-10  tonone container  margintop">
+
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex mt-3  ms-lg-3 align-items-center">
+                        <i class="fas fa-pound-sign hhhhh " style="color:white ; background-color: green; font-size:40px;"></i>
+                        <h1 style=" margin-top: 7px; font-size: 40px ; font-weight: 600;" class="ms-3 ">British Pound</h1>
+                    </div>
+
+                    <div class="to">
+
+                        <button type="button" class="btn my-2 btns2  btns btn-primary">Deposit</button>
+                        <button type="button" class="btn my-2 btns2 btns btn-primary">Withdraw</button>
+                    </div>
+                </div>
+
+                <p style="color: rgb(103, 113, 132); font-size: 19px; font-weight: 600;" class="ms-lg-3 mt-1">Store British Pounds in Your Wallet and use it to buy crypto</p>
+
+
+
+                <div class=" row ">
+
+                    <div class="card col-lg-4 tolgin2 col-md-12 col-sm-12 col-12 ms-3">
+                        <h3 class="tt ms-3 mt-2">GBP Balance</h3>
+                        <h3 class=" ms-3 mt-2">&#8364;
+                            0.00</h3>
+
+                        <h3 class=" ms-3 mt-1 mb-3" style="color: blue; font-size: 18px;"> &#8364;
+                            &#8364;
+                            pending 0.00</h3>
+
+                    </div>
+
+                  
+
+
+
+
+
+
+                    <center class="mt-5">
+                        <h3>Transaction</h3>
+
+                        <p style="color:#8A909C" class="mt-3 fs-5 ">All your Bitcoin will be showing up here</p>
+
+
+                        <button type="button" class="btn fw-bold btn-outline-primary py-3 px-3">Buy Bitcoin Now</button>
+
+                    </center>
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div id="parachute" class="col-lg-9 tonone mt-5  container">
+
+
+
+                <div class="row g-0">
+                    <div class="col-lg-4  ms-lg-4">
+                        <div class="card hhhh">
+                            <div class="d-flex mt-4 mx-3  align-items-center">
+
+                                <i class="fas fa-parachute-box" style="color:gray;"></i>
+                            </div>
+                            <h1 style="font-size:25px; color: #353F52;" class="mx-4 mt-3">Airdrop Program</h1>
+
+                            <p style="color: #9EA4B0; font-weight: 600;" class="mx-4  mb-3 me-5">There are no active
+                                Airdrops at the moment. We'll notify you if a new one starts.</p>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container container2">
+        <div id="slide-container" class="slide-container">
+
+            <div class="text-end">
+                <button type="button" class="btn " onclick="toggleSlide()"><i class="fs-1 bi bi-x"></i></button>
+            </div>
+            <form class="row  justify-content-center ms-5">
+                <div class="col-md-6 col-6">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6 col-6">
+                    <label for="inputPassword4" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">State</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="inputZip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Check me out
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+
+        displayhome = () => {
+            const homeElement = document.getElementById('home');
+            const bitcoinElement = document.getElementById('bitcoin');
+            const parachuteElement = document.getElementById('parachute');
+            const euro = document.getElementById('Euro');
+
+            if (homeElement.style.display === 'none' || homeElement.style.display === '') {
+                homeElement.style.display = 'block';
+            }
+
+            bitcoinElement.style.display = 'none';
+            parachuteElement.style.display = 'none';
+            euro.style.display = 'none';
+
+
+
+
+        };
+
+        displaybitcoin = () => {
+
+
+            const homeElement = document.getElementById('home');
+            const bitcoinElement = document.getElementById('bitcoin');
+            const parachuteElement = document.getElementById('parachute');
+            const euro = document.getElementById('Euro');
+
+            if (bitcoinElement.style.display === 'none' || bitcoinElement.style.display === '') {
+                bitcoinElement.style.display = 'block';
+            }
+
+            homeElement.style.display = 'none';
+            parachuteElement.style.display = 'none';
+
+            euro.style.display = 'none';
+
+        };
+
+        displayparachute = () => {
+
+            const homeElement = document.getElementById('home');
+            const bitcoinElement = document.getElementById('bitcoin');
+            const parachuteElement = document.getElementById('parachute');
+            const euro = document.getElementById('Euro');
+
+            if (parachuteElement.style.display === 'none' || parachuteElement.style.display === '') {
+                parachuteElement.style.display = 'block';
+            }
+
+            homeElement.style.display = 'none';
+            bitcoinElement.style.display = 'none';
+            euro.style.display = 'none';
+
+        }
+
+
+
+        displayEuro=()=>{
+            const homeElement = document.getElementById('home');
+            const bitcoinElement = document.getElementById('bitcoin');
+            const parachuteElement = document.getElementById('parachute');
+            const euro = document.getElementById('Euro');
+
+
+            if (euro.style.display === 'none' || euro.style.display === '') {
+                euro.style.display = 'block';
+            }
+
+            homeElement.style.display = 'none';
+            bitcoinElement.style.display = 'none';
+            parachuteElement.style.display = 'none';
+
+
+        }
+
+
+
+        showbar = () => {
+            const box = document.getElementById('boxx');
+            if (box.style.display === 'none' || box.style.display === '') {
+                box.style.display = 'block';
+            }
+            else {
+
+                box.style.display = 'none';
+
+            }
+        }
+        function toggleSlide() {
+            var slideContainer = document.getElementById("slide-container");
+            if (slideContainer.style.right === "100%") {
+                slideContainer.style.right = "0";
+            } else {
+                slideContainer.style.right = "100%";
+            }
+        }
+
+        shownavbar = () => {
+
+            const homeElement = document.getElementById('main');
+            const navbarr = document.getElementById('navbarbox');
+
+            if (homeElement.style.display === 'none' || homeElement.style.display === '') {
+                homeElement.style.display = 'block';
+                navbarr.style.display = "none"
+            }
+            else {
+                homeElement.style.display = 'none';
+                navbarr.style.display = "block"
+            }
+
+
+        }
+
+
+
+
+    </script>
+
+
+
+
+    <script>
+
+        function initializeApexChart(chartId, data) {
+            var options = {
+                annotations: {
+                    yaxis: [{
+                        y: 30,
+                        borderColor: '#f7c56b',
+                        label: {
+                            show: true,
+                            text: 'Support',
+                            style: {
+                                color: "#fff",
+                                background: '#f7c56b'
+                            }
+                        }
+                    }],
+                    xaxis: [{
+                        x: new Date('14 Nov 2012').getTime(),
+                        borderColor: '#f7c56b',
+                        yAxisIndex: 0,
+                        label: {
+                            show: true,
+                            text: 'Rally',
+                            style: {
+                                color: "#fff",
+                                background: '#f7c56b'
+                            }
+                        }
+                    }]
+                },
+                chart: {
+                    type: 'area',
+                    height: 288,
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                colors: ['#f7c56b'],
+                dataLabels: {
+                    enabled: false
+                },
+                series: [{
+                    data: data
+                }],
+                markers: {
+                    size: 0,
+                    style: 'hollow',
+                },
+                xaxis: {
+                    type: 'datetime',
+                    min: new Date('01 Mar 2012').getTime(),
+                    tickAmount: 6,
+                    show: false,
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd MMM yyyy'
+                    }
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.7,
+                        opacityTo: 0.9,
+                        stops: [0, 100]
+                    }
+                },
+                stroke: {
+                    show: true,
+                    curve: 'smooth',
+                    width: 2,
+                },
+                grid: {
+                    yaxis: {
+                        lines: {
+                            show: false,
+                        }
+                    },
+                },
+            };
+
+            var chart = new ApexCharts(
+                document.querySelector(chartId),
+                options
+            );
+
+            chart.render();
+
+            var resetCssClasses = function (activeEl) {
+                var els = document.querySelectorAll("button");
+                Array.prototype.forEach.call(els, function (el) {
+                    el.classList.remove('active');
+                });
+
+                activeEl.target.classList.add('active');
+            };
+
+            // document.querySelector(chartId + " #one_month").addEventListener('click', function (e) {
+            //     resetCssClasses(e);
+            //     chart.updateOptions({
+            //         xaxis: {
+            //             min: new Date('28 Jan 2013').getTime(),
+            //             max: new Date('27 Feb 2013').getTime(),
+            //         }
+            //     });
+            // });
+
+            // document.querySelector(chartId + " #six_months").addEventListener('click', function (e) {
+            //     resetCssClasses(e);
+            //     chart.updateOptions({
+            //         xaxis: {
+            //             min: new Date('27 Sep 2012').getTime(),
+            //             max: new Date('27 Feb 2013').getTime(),
+            //         }
+            //     });
+            // });
+
+            // document.querySelector(chartId + " #one_year").addEventListener('click', function (e) {
+            //     resetCssClasses(e);
+            //     chart.updateOptions({
+            //         xaxis: {
+            //             min: new Date('27 Feb 2012').getTime(),
+            //             max: new Date('27 Feb 2013').getTime(),
+            //         }
+            //     });
+            // });
+
+            // document.querySelector(chartId + " #ytd").addEventListener('click', function (e) {
+            //     resetCssClasses(e);
+            //     chart.updateOptions({
+            //         xaxis: {
+            //             min: new Date('01 Jan 2013').getTime(),
+            //             max: new Date('27 Feb 2013').getTime(),
+            //         }
+            //     });
+            // });
+
+            // document.querySelector(chartId + " #all").addEventListener('click', function (e) {
+            //     resetCssClasses(e);
+            //     chart.updateOptions({
+            //         xaxis: {
+            //             min: undefined,
+            //             max: undefined,
+            //         }
+            //     });
+            // });
+        }
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartData1 = [
+            [1327359600000, 30.95],
+            [1327359600000, 30.95],
+            [1327446000000, 31.34],
+            [1327532400000, 31.18],
+            [1327618800000, 31.05],
+            [1327878000000, 31.00],
+            [1327964400000, 30.95],
+            [1328050800000, 31.24],
+            [1328137200000, 31.29],
+            [1328223600000, 31.85],
+            [1328482800000, 31.86],
+            [1328569200000, 32.28],
+            [1328655600000, 32.10],
+            [1328742000000, 32.65],
+            [1328828400000, 32.21],
+            [1329087600000, 32.35],
+            [1329174000000, 32.44],
+            [1329260400000, 32.46],
+            [1329346800000, 32.86],
+            [1329433200000, 32.75],
+            [1329778800000, 32.54],
+            [1329865200000, 32.33],
+            [1329951600000, 32.97],
+            [1330038000000, 33.41],
+            [1330297200000, 33.27],
+            [1330383600000, 33.27],
+            [1330470000000, 32.89],
+            [1330556400000, 33.10],
+            [1330642800000, 33.73],
+            [1330902000000, 33.22],
+            [1330988400000, 31.99],
+            [1331074800000, 32.41],
+            [1331161200000, 33.05],
+            [1331247600000, 33.64],
+            [1331506800000, 33.56],
+            [1331593200000, 34.22],
+            [1331679600000, 33.77],
+            [1331766000000, 34.17],
+            [1331852400000, 33.82],
+            [1332111600000, 34.51],
+            [1332198000000, 33.16],
+            [1332284400000, 33.56],
+            [1332370800000, 33.71],
+            [1332457200000, 33.81],
+            [1332712800000, 34.40],
+            [1332799200000, 34.63],
+            [1332885600000, 34.46],
+            [1332972000000, 34.48],
+            [1333058400000, 34.31],
+            [1333317600000, 34.70],
+            [1333404000000, 34.31],
+            [1333490400000, 33.46],
+            [1333576800000, 33.59],
+            [1333922400000, 33.22],
+            [1334008800000, 32.61],
+            [1334095200000, 33.01],
+            [1334181600000, 33.55],
+            [1334268000000, 33.18],
+            [1334527200000, 32.84],
+            [1334613600000, 33.84],
+            [1334700000000, 33.39],
+            [1334786400000, 32.91],
+            [1334872800000, 33.06],
+            [1335132000000, 32.62],
+            [1335218400000, 32.40],
+            [1335304800000, 33.13],
+            [1335391200000, 33.26],
+            [1335477600000, 33.58],
+            [1335736800000, 33.55],
+            [1335823200000, 33.77],
+            [1335909600000, 33.76],
+            [1335996000000, 33.32],
+            [1336082400000, 32.61],
+            [1336341600000, 32.52],
+            [1336428000000, 32.67],
+            [1336514400000, 32.52],
+            [1336600800000, 31.92],
+            [1336687200000, 32.20],
+            [1336946400000, 32.23],
+            [1337032800000, 32.33],
+            [1337119200000, 32.36],
+            [1337205600000, 32.01],
+            [1337292000000, 31.31],
+            [1337551200000, 32.01],
+            [1337637600000, 32.01],
+            [1337724000000, 32.18],
+            [1337810400000, 31.54],
+            [1337896800000, 31.60],
+            [1338242400000, 32.05],
+            [1338328800000, 31.29],
+            [1338415200000, 31.05],
+            [1338501600000, 29.82],
+            [1338760800000, 30.31],
+            [1338847200000, 30.70],
+            [1338933600000, 31.69],
+            [1339020000000, 31.32],
+            [1339106400000, 31.65],
+            [1339365600000, 31.13],
+            [1339452000000, 31.77],
+            [1339538400000, 31.79],
+            [1339624800000, 31.67],
+            [1339711200000, 32.39],
+            [1339970400000, 32.63],
+            [1340056800000, 32.89],
+            [1340143200000, 31.99],
+            [1340229600000, 31.23],
+            [1340316000000, 31.57],
+            [1340575200000, 30.84],
+            [1340661600000, 31.07],
+            [1340748000000, 31.41],
+            [1340834400000, 31.17],
+            [1340920800000, 32.37],
+            [1341180000000, 32.19],
+            [1341266400000, 32.51],
+            [1341439200000, 32.53],
+            [1341525600000, 31.37],
+            [1341784800000, 30.43],
+            [1341871200000, 30.44],
+            [1341957600000, 30.20],
+            [1342044000000, 30.14],
+            [1342130400000, 30.65],
+            [1342389600000, 30.40],
+            [1342476000000, 30.65],
+            [1342562400000, 31.43],
+            [1342648800000, 31.89],
+            [1342735200000, 31.38],
+            [1342994400000, 30.64],
+            [1343080800000, 30.02],
+            [1343167200000, 30.33],
+            [1343253600000, 30.95],
+            [1343340000000, 31.89],
+            [1343599200000, 31.01],
+            [1343685600000, 30.88],
+            [1343772000000, 30.69],
+            [1343858400000, 30.58],
+            [1343944800000, 32.02],
+            [1344204000000, 32.14],
+            [1344290400000, 32.37],
+            [1344376800000, 32.51],
+            [1344463200000, 32.65],
+            [1344549600000, 32.64],
+            [1344808800000, 32.27],
+            [1344895200000, 32.10],
+            [1344981600000, 32.91],
+            [1345068000000, 33.65],
+            [1345154400000, 33.80],
+            [1345413600000, 33.92],
+            [1345500000000, 33.75],
+            [1345586400000, 33.84],
+            [1345672800000, 33.50],
+            [1345759200000, 32.26],
+            [1346018400000, 32.32],
+            [1346104800000, 32.06],
+            [1346191200000, 31.96],
+            [1346277600000, 31.46],
+            [1346364000000, 31.27],
+            [1346709600000, 31.43],
+            [1346796000000, 32.26],
+            [1346882400000, 32.79],
+            [1346968800000, 32.46],
+            [1347228000000, 32.13],
+            [1347314400000, 32.43],
+            [1347400800000, 32.42],
+            [1347487200000, 32.81],
+            [1347573600000, 33.34],
+            [1347832800000, 33.41],
+            [1347919200000, 32.57],
+            [1348005600000, 33.12],
+            [1348092000000, 34.53],
+            [1348178400000, 33.83],
+            [1348437600000, 33.41],
+            [1348524000000, 32.90],
+            [1348610400000, 32.53],
+            [1348696800000, 32.80],
+            [1348783200000, 32.44],
+            [1349042400000, 32.62],
+            [1349128800000, 32.57],
+            [1349215200000, 32.60],
+            [1349301600000, 32.68],
+            [1349388000000, 32.47],
+            [1349647200000, 32.23],
+            [1349733600000, 31.68],
+            [1349820000000, 31.51],
+            [1349906400000, 31.78],
+            [1349992800000, 31.94],
+            [1350252000000, 32.33],
+            [1350338400000, 33.24],
+            [1350424800000, 33.44],
+            [1350511200000, 33.48],
+            [1350597600000, 33.24],
+            [1350856800000, 33.49],
+            [1350943200000, 33.31],
+            [1351029600000, 33.36],
+            [1351116000000, 33.40],
+            [1351202400000, 34.01],
+            [1351638000000, 34.02],
+            [1351724400000, 34.36],
+            [1351810800000, 34.39],
+            [1352070000000, 34.24],
+            [1352156400000, 34.39],
+            [1352242800000, 33.47],
+            [1352329200000, 32.98],
+            [1352415600000, 32.90],
+            [1352674800000, 32.70],
+            [1352761200000, 32.54],
+            [1352847600000, 32.23],
+            [1352934000000, 32.64],
+            [1353020400000, 32.65],
+            [1353279600000, 32.92],
+            [1353366000000, 32.64],
+            [1353452400000, 32.84],
+            [1353625200000, 33.40],
+            [1353884400000, 33.30],
+            [1353970800000, 33.18],
+            [1354057200000, 33.88],
+            [1354143600000, 34.09],
+            [1354230000000, 34.61],
+            [1354489200000, 34.70],
+            [1354575600000, 35.30],
+            [1354662000000, 35.40],
+            [1354748400000, 35.14],
+            [1354834800000, 35.48],
+            [1355094000000, 35.75],
+            [1355180400000, 35.54],
+            [1355266800000, 35.96],
+            [1355353200000, 35.53],
+            [1355439600000, 37.56],
+            [1355698800000, 37.42],
+            [1355785200000, 37.49],
+            [1355871600000, 38.09],
+            [1355958000000, 37.87],
+            [1356044400000, 37.71],
+            [1356303600000, 37.53],
+            [1356476400000, 37.55],
+            [1356562800000, 37.30],
+            [1356649200000, 36.90],
+            [1356908400000, 37.68],
+            [1357081200000, 38.34],
+            [1357167600000, 37.75],
+            [1357254000000, 38.13],
+            [1357513200000, 37.94],
+            [1357599600000, 38.14],
+            [1357686000000, 38.66],
+            [1357772400000, 38.62],
+            [1357858800000, 38.09],
+            [1358118000000, 38.16],
+            [1358204400000, 38.15],
+            [1358290800000, 37.88],
+            [1358377200000, 37.73],
+            [1358463600000, 37.98],
+            [1358809200000, 37.95],
+            [1358895600000, 38.25],
+            [1358982000000, 38.10],
+            [1359068400000, 38.32],
+            [1359327600000, 38.24],
+            [1359414000000, 38.52],
+            [1359500400000, 37.94],
+            [1359586800000, 37.83],
+            [1359673200000, 38.34],
+            [1359932400000, 38.10],
+            [1360018800000, 38.51],
+            [1360105200000, 38.40],
+            [1360191600000, 38.07],
+            [1360278000000, 39.12],
+            [1360537200000, 38.64],
+            [1360623600000, 38.89],
+            [1360710000000, 38.81],
+            [1360796400000, 38.61],
+            [1360882800000, 38.63],
+            [1361228400000, 38.99],
+            [1361314800000, 38.77],
+            [1361401200000, 38.34],
+            [1361487600000, 38.55],
+            [1361746800000, 38.11],
+            [1361833200000, 38.59],
+            [1361919600000, 39.60],
+        ];
+
+
+        initializeApexChart("#apex-timeline-chart", chartData1);
+});
+
+
+
+
+
+        
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+  <script>
+    // Sample data for the line chart
+    var chartData = {
+        labels: ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"],
+        datasets: [{
+            label: "My Line Chart",
+            borderColor: "rgb(75, 192, 192)",
+            data: [12, 19, 3, 5, 2],
+            fill: false,
+        }]
+    };
+
+    // Get the canvas element
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // Create the line chart
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'category',
+                    labels: chartData.labels,
+                },
+                y: {
+                    beginAtZero: true,
+                }
+            },
+        },
+    });
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
